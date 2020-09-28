@@ -1,0 +1,59 @@
+<div class="main-container">
+
+  <mat-toolbar color="primary" class="topbar telative">
+
+    <div class="navbar-header">
+
+      <a class="navbar-brand" [routerLink]="['/']">
+
+        <!-- Logo icon -->
+        <div class="fake-logo-icon" fxLayoutAlign="center center">
+          <span>
+            34x33
+          </span>
+        </div>
+        <!--End Logo icon -->
+
+        <!-- Logo text -->
+        <span fxShow="false" fxShow.gt-xs>
+          <div class="fake-logo-text" fxLayoutAlign="center center">
+            <span>
+              148x33
+            </span>
+          </div>
+        </span>
+      </a>
+
+    </div>
+
+    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span fxFlex></span>
+
+    <app-container-header></app-container-header>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="custom-sidenav-container" [style.marginTop.px]="0">
+
+    <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
+      fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+
+      <app-container-sidebar></app-container-sidebar>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="page-wrapper">
+
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+
+      <app-container-footer></app-container-footer>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>

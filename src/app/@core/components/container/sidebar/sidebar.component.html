@@ -1,0 +1,33 @@
+<div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+
+  <div class="profile-img"> <img src="assets/images/users/profile.png" alt="user"> </div>
+
+  <div class="profile-text">
+    <div>
+      Usuário não logado
+    </div>
+  </div>
+
+</div>
+
+<mat-nav-list accordion>
+
+  <mat-list-item accordion-link *ngFor="let menuItem of menuList" routerLinkActive="selected"
+    group="{{menuItem.route}}">
+
+    <a class="" accordion-anchor [routerLink]="[menuItem.route]" *ngIf="menuItem.type === 'link'">
+      <mat-icon>
+        {{ menuItem.icon }}
+      </mat-icon>
+      <span>
+        {{ menuItem.name }}
+      </span>
+      <span fxFlex></span>
+      <span class="label label-{{ badge.type }}" *ngFor="let badge of menuItem.badge">
+        {{ badge.value }}
+      </span>
+    </a>
+
+  </mat-list-item>
+
+</mat-nav-list>
